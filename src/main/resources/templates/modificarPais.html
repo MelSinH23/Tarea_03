@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns="https://www.w3.org/1999/xhtml">
+    <head>
+        <title>Practica 01</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Datos Paises</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br>
+        <br>
+        <form th:action="@{/guardarPais}"
+              method="post"
+              th:object="${pais}">
+            <input type="hidden" name="idPais" th:field="*{idPais}" />
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" />
+            <br>
+            <label for="capital">Capital: </label>
+            <input type="text" id="capital" name="capital" th:field="*{capital}" />
+            <br>
+            <label for="poblacion">Poblacion: </label>
+            <input type="text" id="poblacion" name="poblacion" th:field="*{poblacion}" />
+            <br>
+            <label for="continente">Continente: </label>
+            <input type="text" id="continente" name="continente" th:field="*{continente}" />
+            <br>
+            <input type="submit" name="Guardar" value="Guardar" />
+        </form>
+    </body>
+</html>
+
