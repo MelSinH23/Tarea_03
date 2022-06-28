@@ -6,8 +6,10 @@
         <title>Practica 01</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/estilos/estilo1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <header th:replace="layout/plantilla :: header"/>
         <h1>Datos Paises</h1>
         <a th:href="@{/}">Regresar</a>
         <br>
@@ -28,8 +30,9 @@
             <label for="continente">Continente: </label>
             <input type="text" id="continente" name="continente" th:field="*{continente}" />
             <br>
-            <input type="submit" name="Guardar" value="Guardar" />
+            <input type="submit" name="guardar" value="Guardar" />
         </form>
+        <footer th:replace="layout/plantilla:: footer" />
     </body>
 </html>
 

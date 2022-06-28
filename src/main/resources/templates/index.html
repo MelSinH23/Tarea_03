@@ -3,8 +3,7 @@
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link th:href="@{../static/estilos/estilo1.css}" rel="stylesheet" type="text/css"/>
+        <link href="../static/estilos/estilo1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -14,29 +13,32 @@
         <br>
         <div th:if="${paises != null and !paises.empty}">
             <table border="1">
-                <thead id="encabezadoTabla">
+                <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Capital</th>
                         <th>Población</th>
                         <th>Continente</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="item:${paises}">
-                        <td th:class="${item.nombre}"></td>
+                        <!-- comment  <td th:text="${item.idPais}"></td>  -->
+                        <td th:text="${item.nombre}"></td>
                         <td th:text="${item.capital}"></td>
                         <td th:text="${item.poblacion}"></td>
                         <td th:text="${item.continente}"></td>
-                        <td><a th:text="@{modificarPais/} + ${item.idPais}">Modificar</td>
-                        <td><a th:text="@{eliminarPais/} + ${item.idPais}">Eliminar</td>
+                        <td><a th:href="@{/modificarPais/} + ${item.idPais}">Modificar</td>
+                        <td><a th:href="@{/eliminarPais/} + ${item.idPais}">Eliminar</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div th:if="${paises = null or paises.empty}">
-            La lista de paises está vacía
-        </div>
+        <div th:if="${paises==null or paises.empty}">
+             La lista está vacía.
+       </div> 
         
         <footer th:replace="layout/plantilla:: footer" />
         
